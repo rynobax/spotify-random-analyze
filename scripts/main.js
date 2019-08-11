@@ -23,16 +23,15 @@ const getTracks = async () => {
 };
 
 const getArtists = async () => {
-  console.log(tracks.length)
-  // const artistsIds = _.flatten(tracks.map(track => track.arists.map(artist => artist.id)));
-  // console.log(artistsIds)
-  // console.log(artistsIds.length)
-  // const songIds = playlist.map(e => e.split('/')[4]);
-  // const tracks = await spotify.getTracks(songIds);
-  // fs.writeFileSync('./data/tracks.json', JSON.stringify(tracks));
+  const artistIds = _.uniq(
+    _.flatten(tracks.map(track => track.artists.map(artist => artist.id)))
+  );
+  const artists = await spotify.getArtists(artistIds);
+  fs.writeFileSync('./data/artists.json', JSON.stringify(artists));
 };
 
 function main() {
+  // return getTracks();
   return getArtists();
 }
 
