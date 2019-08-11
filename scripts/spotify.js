@@ -1,9 +1,6 @@
 const fetch = require('node-fetch');
 const _ = require('lodash');
-
-// https://developer.spotify.com/console/get-album
-const token =
-  'BQBI9SJ6JCPFtgJ5O88rcoeTh6HT_mFVUGUyQ3zqZCzj2pm0-l9dzlxgTA-wI2e5T1GOhIBayAxKK0p-cBnOtWeAaCbgmxXcED0mL_pPfsP_lVNrJAlyrP6JcsXNVlDnus8dsLq5knnSWi4VFKvvN0SDLHQ';
+const { token } = require('./secret');
 
 const wait = ms => new Promise(r => setTimeout(() => r(), ms));
 
